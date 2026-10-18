@@ -8,6 +8,36 @@ document.addEventListener("DOMContentLoaded", () => {
   const btnText = submitBtn.querySelector(".btn-text");
   const spinner = submitBtn.querySelector(".spinner");
   const toast = document.getElementById("statusMessage");
+  const departmentSelect = document.getElementById("department");
+  const branchSelect = document.getElementById("branch");
+
+  Object.keys(DEPARTMENT_BRANCHES).forEach((department) => {
+    const option = document.createElement("option");
+    option.value = department;
+    option.textContent = department;
+    departmentSelect.appendChild(option);
+  });
+
+  departmentSelect.addEventListener("change", () => {
+    const branches = DEPARTMENT_BRANCHES[departmentSelect.value] || [];
+    branchSelect.replaceChildren(
+      new Option(
+        branches.length ? "Select Branch" : "Select a department first",
+        "",
+        true,
+        true,
+      ),
+    );
+    branchSelect.options[0].disabled = true;
+
+    branches.forEach((branch) => {
+      branchSelect.add(new Option(branch, branch));
+    });
+    branchSelect.disabled = branches.length === 0;
+
+    departmentSelect.closest(".input-group").classList.remove("invalid");
+    branchSelect.closest(".input-group").classList.remove("invalid");
+  });
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -59,6 +89,10 @@ document.addEventListener("DOMContentLoaded", () => {
       if (result.status === "success") {
         showToast("✓ Successfully registered with ACM MITS!", "success");
         form.reset();
+        branchSelect.replaceChildren(
+          new Option("Select a department first", "", true, true),
+        );
+        branchSelect.disabled = true;
         clearValidationState();
       } else {
         throw new Error(result.message || "Spreadsheet append failed.");
