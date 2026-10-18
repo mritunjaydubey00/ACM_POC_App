@@ -1,5 +1,6 @@
 // REPLACE THIS WITH YOUR GOOGLE APPS SCRIPT WEB APP URL
-const GOOGLE_APPS_SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
+const GOOGLE_APPS_SCRIPT_URL =
+  "https://script.google.com/macros/s/AKfycbzgPCv6JoWDhPH6y1Q9jjlP4niJyJ6ZGESWGO_Lcd9UAWF296smAZ66TTv2wR1htroo/exec";
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("acmForm");
