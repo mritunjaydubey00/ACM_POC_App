@@ -1,4 +1,4 @@
-const DEPARTMENT_BRANCHES = {
+export const DEPARTMENT_BRANCHES = {
   "School of Civil Engineering": ["Civil Engineering"],
   "School of Mechanical Engineering": ["Mechanical Engineering"],
   "School of Electrical Engineering": ["Electrical Engineering"],
