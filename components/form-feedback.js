@@ -1,10 +1,21 @@
-export function showToast(toast, message, type) {
-  toast.textContent = message;
-  toast.className = `toast ${type}`;
+export function initializeDialog(dialog) {
+  dialog
+    .querySelector(".dialog-close")
+    .addEventListener("click", () => dialog.close());
 }
 
-export function hideToast(toast) {
-  toast.className = "toast hidden";
+export function showDialog(dialog, message, type) {
+  const title = dialog.querySelector("#dialogTitle");
+  const content = dialog.querySelector(".dialog-content");
+
+  title.textContent =
+    type === "success" ? "Registration successful" : "Registration issue";
+  dialog.querySelector("#dialogMessage").textContent = message;
+  content.className = `dialog-content ${type}`;
+
+  if (!dialog.open) {
+    dialog.showModal();
+  }
 }
 
 export function setLoadingState(submitButton, loading) {

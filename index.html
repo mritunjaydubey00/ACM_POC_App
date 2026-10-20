@@ -27,8 +27,6 @@
       </header>
 
       <form id="acmForm" class="registration-card" novalidate>
-        <div id="statusMessage" class="toast hidden"></div>
-
         <!-- Full Name -->
         <div class="input-group">
           <label for="name">Full Name <span class="required">*</span></label>
@@ -148,6 +146,19 @@
         </p>
       </footer>
     </main>
+
+    <dialog
+      id="statusDialog"
+      class="status-dialog"
+      aria-labelledby="dialogTitle"
+      aria-describedby="dialogMessage"
+    >
+      <div class="dialog-content">
+        <h2 id="dialogTitle" class="dialog-title"></h2>
+        <p id="dialogMessage" class="dialog-message"></p>
+        <button type="button" class="dialog-close">OK</button>
+      </div>
+    </dialog>
 
     <script type="module" src="script.js"></script>
   </body>

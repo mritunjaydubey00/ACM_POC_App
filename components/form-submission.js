@@ -3,9 +3,8 @@ import {
   validateForm,
 } from "./form-validation.js";
 import {
-  hideToast,
   setLoadingState,
-  showToast,
+  showDialog,
 } from "./form-feedback.js";
 
 // Replace this with the deployed Google Apps Script web app URL.
@@ -14,15 +13,15 @@ const GOOGLE_APPS_SCRIPT_URL =
 
 export function initializeFormSubmission(form) {
   const submitButton = document.getElementById("submitBtn");
-  const toast = document.getElementById("statusMessage");
+  const dialog = document.getElementById("statusDialog");
   const branchSelect = document.getElementById("branch");
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     if (!validateForm(form)) {
-      showToast(
-        toast,
+      showDialog(
+        dialog,
         "Please fix the highlighted fields before submitting.",
         "error",
       );
@@ -34,8 +33,8 @@ export function initializeFormSubmission(form) {
         "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE",
       )
     ) {
-      showToast(
-        toast,
+      showDialog(
+        dialog,
         "Deployment Error: Please configure your Google Apps Script Web App URL in form-submission.js",
         "error",
       );
@@ -43,7 +42,6 @@ export function initializeFormSubmission(form) {
     }
 
     setLoadingState(submitButton, true);
-    hideToast(toast);
 
     const formData = new URLSearchParams();
     formData.append("name", document.getElementById("name").value.trim());
@@ -66,7 +64,7 @@ export function initializeFormSubmission(form) {
       const result = await response.json();
 
       if (result.status === "success") {
-        showToast(toast, "✓ Successfully registered with ACM MITS!", "success");
+        showDialog(dialog, "Successfully registered with ACM MITS!", "success");
         form.reset();
         branchSelect.replaceChildren(
           new Option("Select a department first", "", true, true),
@@ -78,8 +76,8 @@ export function initializeFormSubmission(form) {
       }
     } catch (error) {
       console.error("Submission Error:", error);
-      showToast(
-        toast,
+      showDialog(
+        dialog,
         "Submission failed. Please check your network or try again.",
         "error",
       );

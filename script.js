@@ -1,11 +1,16 @@
 import { initializeFormSubmission } from "./components/form-submission.js";
-import { showToast } from "./components/form-feedback.js";
+import {
+  initializeDialog,
+  showDialog,
+} from "./components/form-feedback.js";
 
 const form = document.getElementById("acmForm");
+const statusDialog = document.getElementById("statusDialog");
 const departmentGroup = document
   .getElementById("department")
   .closest(".input-group");
 
+initializeDialog(statusDialog);
 initializeFormSubmission(form);
 
 let departmentEnhancement;
@@ -21,7 +26,8 @@ function loadDepartmentEnhancement() {
       })
       .catch((error) => {
         console.error("Department dropdown initialization failed:", error);
-        showToast(
+        showDialog(
+          statusDialog,
           "Department options could not be loaded. Please refresh the page.",
           "error",
         );
