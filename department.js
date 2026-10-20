@@ -1,33 +1,30 @@
 const DEPARTMENT_BRANCHES = {
-  "Computer Science & Engineering (CSE) / IT": [
+  "School of Civil Engineering": ["Civil Engineering"],
+  "School of Mechanical Engineering": ["Mechanical Engineering"],
+  "School of Electrical Engineering": ["Electrical Engineering"],
+  "Department of Computer Science & Engineering": [
     "Computer Science & Engineering",
-    "Information Technology",
-    "Artificial Intelligence & Data Science",
-    "Artificial Intelligence & Machine Learning",
-    "Artificial Intelligence (AI)",
     "Computer Science & Design",
-    "Computer Science & Business Systems",
-    "Computer Science & Technology",
-    "Information Technology (Artificial Intelligence and Robotics)",
   ],
-  "Electrical Engineering": [
-    "Electrical Engineering",
-    "Electrical & Computer Engineering",
-    "Internet of Things (IoT - Offered by Electrical Engineering Department)",
-  ],
-  "Electronics & Telecommunication / Electronics Engineering": [
+  "School of Information Technology": ["Information Technology"],
+  "School of Electronics & Communication Engineering": [
     "Electronics Engineering",
-    "Electronics & Telecommunication Engineering",
+    "Electronics & Telecommunications Engineering",
   ],
-  "Mechanical Engineering": [
-    "Mechanical Engineering",
-    "Automobile Engineering",
+  "Centre for Artificial Intelligence": [
+    "Information Technology (Artificial Intelligence and Robotics)",
+    "Artificial Intelligence & Machine Learning",
+    "Artificial Intelligence & Data Science",
+    "Artificial Intelligence",
   ],
-  "Civil Engineering": ["Civil Engineering"],
-  "Chemical Engineering": ["Chemical Engineering"],
-  Biotechnology: ["Biotechnology"],
-  "Applied Sciences / Computing": ["Mathematics and Computing"],
-  "Information Technology (Cross-Departmental)": [
-    "Internet of Things (IoT - Offered by Information Technology Department)",
+  "Department of Internet of Things(EE)": [
+    "Electrical and Computer Engineering",
+    " Internet of Things (IoT)",
   ],
+  "Centre for Computer Science and Technology": [
+    "Computer Science and Business Systems",
+    "Computer Science and Technology",
+  ],
+  "School of Engineering Mathematics & Computing": ["Mathematics & Computing"],
+  "School of Chemical Engineering": ["Chemical Engineering"],
 };
